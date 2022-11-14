@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Space Shooter SIUUUU</title>
+  </head>
+  <style>
+    body {
+      width: 100%;
+      overflow: hidden;
+      background: url("space.jpg");
+      background-size: cover; /*menampilkan belakang frame*/
+    }
+    #board {
+      position: relative;
+      width: 520px;
+      height: 500px;
+      margin: 40px auto;
+      border: 2px solid white;
+      background-color: black;
+      overflow: hidden;
+      display: none;
+    }
+
+    #jet {
+      position: absolute;
+      width: 75px;
+      height: 75px;
+      background: url("rocket.jpg");
+      background-size: contain;
+      background-repeat: no-repeat;
+      left: 45%;
+      bottom: 0px; /*menampilkan rocker*/
+    }
+
+    .bullets {
+      position: absolute;
+      bottom: 40px;
+      left: 51%;
+      width: 20px;
+      height: 20px;
+      background: url("bullet.png");
+      background-size: contain;
+      background-repeat: no-repeat; /*menampilkan tembakan*/
+    }
+
+    .rocks {
+      position: absolute;
+      top: 0px;
+      width: 50px;
+      height: 50px;
+      background: url("meteor.png");
+      background-size: contain;
+      background-repeat: no-repeat; /*menampilkan metoer*/
+    }
+    #points {
+      position: absolute;
+      top: 0px;
+      margin: 40px;
+      opacity: 0.7;
+      font-size: 10em;
+      color: white; /*menampilkan score*/
+      display: none;
+    }
+
+    /* mulai dari sini lang */
+    /* card */
+    .container {
+      display: grid;
+      place-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .card {
+      display: block;
+      padding: 64px;
+      /* background-color: #f5efe6; */
+    }
+
+    .go-card {
+      display: none;
+      padding: 64px;
+      background-color: #f5efe6;
+    }
+
+    button {
+      padding: 2em 5em;
+      border: none;
+      background-color: #256d85;
+      color: white;
+      font-family: Georgia, "Times New Roman", Times, serif;
+      transition: 0.7s;
+    }
+
+    button:hover {
+      transition: 0.7s;
+      background-color: #17566b;
+      border-radius: 10px;
+    }
+
+    h3 {
+      /* position: absolute;
+      top: 0px;
+      margin: 40px; */
+      display: none;
+      /* color: white; */
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .btn {
+      /* position: absolute;
+      top: 10em;
+      right: 80;
+      right: 5em; */
+      /* margin: 1em 3em; */
+      display: none;
+      padding: 1.6em 2em;
+    }
+
+    p {
+      text-align: center;
+    }
+    /* sampai sini */
+  </style>
+  <script src="spaceshooter.js" defer></script>
+  <body onload="">
+    <div class="container">
+      <div class="card" id="card">
+        <div class="card-content">
+          <button onclick="mulai()">Mulai</button>
+        </div>
+      </div>
+      <div class="go-card" id="go-card">
+        <h3 id="gameOver">Game Over</h3>
+        <button class="btn" onclick="mainLagi()" id="btn">Back</button>
+        <p>Skor mu <span id="high-score"></span></p>
+      </div>
+      <div id="board">
+        <div class="rocks"></div>
+        <div id="jet"></div>
+      </div>
+    </div>
+
+    <div id="points">0</div>
+  </body>
+</html>
